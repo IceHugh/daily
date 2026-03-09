@@ -61,7 +61,7 @@ export default defineConfig({
 
     // 社交链接
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/your-username/daily' },
+      { icon: 'github', link: 'https://github.com/IceHugh/daily' },
       { icon: 'twitter', link: 'https://twitter.com/your-twitter' },
     ],
 
