@@ -1,15 +1,18 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: '每日资讯',
-  description: '分享 Web3、AI 和超级个体相关的前沿资讯',
+  title: '0xfig | 前沿科技资讯',
+  description: '0xfig - 专注 Web3、AI 和超级个体领域的前沿资讯与深度洞察平台',
   lang: 'zh-CN',
 
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     ['meta', { name: 'author', content: 'IceHugh' }],
-    ['meta', { name: 'keywords', content: 'Web3,AI,超级个体，一人公司，区块链，人工智能，创业者' }],
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['meta', { name: 'keywords', content: '0xfig,Web3,AI，人工智能，超级个体，一人公司，区块链，DeFi,NFT,DAO，独立开发，数字游民，前沿科技，技术创新' }],
+    ['meta', { name: 'description', content: '0xfig 专注 Web3、AI 和超级个体领域，分享前沿科技资讯、技术深度解读与个体价值探索，助您把握去中心化未来的无限可能' }],
+    ['link', { rel: 'icon', href: '/favicon.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    ['link', { rel: 'apple-touch-icon', href: '/favicon.svg' }],
   ],
 
   themeConfig: {
@@ -53,7 +56,7 @@ export default defineConfig({
 
     footer: {
       message: 'Powered by VitePress & Lumen',
-      copyright: 'Copyright © 2025 IceHugh',
+      copyright: 'Copyright © 2026 IceHugh',
     },
 
     search: {

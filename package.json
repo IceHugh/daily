@@ -1,7 +1,7 @@
 {
-  "name": "daily",
+  "name": "0xfig-daily",
   "version": "1.0.0",
-  "description": "每日资讯 - Web3、AI、超级个体前沿资讯",
+  "description": "0xfig - 专注 Web3、AI 和超级个体领域的前沿资讯平台",
   "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
@@ -9,11 +9,17 @@
     "preview": "vitepress preview docs"
   },
   "keywords": [
-    "vitepress",
+    "0xfig",
     "web3",
     "ai",
+    "artificial-intelligence",
     "opc",
-    "blog"
+    "solopreneur",
+    "blockchain",
+    "defi",
+    "indie-hacker",
+    "digital-nomad",
+    "tech-news"
   ],
   "author": "IceHugh",
   "license": "MIT",
