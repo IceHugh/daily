@@ -153,115 +153,123 @@ const greeting = computed(() => {
 </template>
 
 <style scoped>
+/* ==============================
+   极简现代风格首页组件
+   Minimalist Modern Homepage
+   ============================== */
+
 .home-page {
   min-height: 100vh;
 }
 
-/* Hero Section */
+/* ==============================
+   Hero 区域 - 极简设计
+   ============================== */
 .hero-section {
-  padding: 4rem 1.5rem 3rem;
+  padding: var(--spacing-6) var(--spacing-2);
   text-align: center;
-  background: linear-gradient(180deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+  background-color: var(--color-bg-primary);
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-2) 0;
+  line-height: var(--line-height-title);
+  letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
-  color: var(--vp-c-text-2);
-  margin-bottom: 0.5rem;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-1) 0;
+  line-height: var(--line-height-body);
 }
 
 .hero-date {
-  font-size: 1rem;
-  color: var(--vp-c-text-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-tertiary);
+  margin: 0;
 }
 
-/* Content Overview */
+/* ==============================
+   内容概览卡片 - 简洁设计
+   ============================== */
 .content-overview {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  padding: 0 1.5rem 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-3);
+  padding: 0 var(--spacing-2) var(--spacing-5);
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .overview-card {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
+  background-color: var(--color-bg-primary);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-4) var(--spacing-3);
+  transition: all var(--transition-base);
   cursor: pointer;
+  position: relative;
 }
 
 .overview-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.overview-card.web3 {
-  border-left: 4px solid #3b82f6;
-}
-
-.overview-card.ai {
-  border-left: 4px solid #8b5cf6;
-}
-
-.overview-card.opc {
-  border-left: 4px solid #10b981;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow);
 }
 
 .card-header {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
 }
 
 .card-header .icon {
   font-size: 2rem;
+  line-height: 1;
 }
 
 .card-header h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
   margin: 0;
 }
 
 .card-stats {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: var(--spacing-1);
 }
 
 .stat {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--vp-c-brand-1);
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  line-height: 1;
 }
 
 .label {
-  font-size: 0.875rem;
-  color: var(--vp-c-text-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-tertiary);
 }
 
-/* News Section */
+/* ==============================
+   资讯板块 - 清晰布局
+   ============================== */
 .news-section {
-  padding: 2rem 1.5rem;
+  padding: var(--spacing-4) var(--spacing-2);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -270,54 +278,62 @@ const greeting = computed(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-3);
+  padding-bottom: var(--spacing-2);
+  border-bottom: var(--border-width) solid var(--color-border);
 }
 
 .section-title {
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-2);
   margin: 0;
 }
 
 .section-title .icon {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
 .view-all {
-  color: var(--vp-c-brand-1);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
   text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  transition: color var(--transition-fast);
 }
 
 .view-all:hover {
-  color: var(--vp-c-brand-2);
+  color: var(--color-accent);
   text-decoration: underline;
 }
 
-/* News Grid */
+/* ==============================
+   资讯网格 - 3列布局
+   ============================== */
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-3);
 }
 
-/* News Card */
+/* ==============================
+   资讯卡片 - 极简设计
+   ============================== */
 .news-card {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
+  background-color: var(--color-bg-primary);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-3);
+  transition: all var(--transition-base);
 }
 
 .news-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  border-color: var(--vp-c-brand-1);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow);
 }
 
 .news-link {
@@ -327,36 +343,42 @@ const greeting = computed(() => {
 }
 
 .news-meta {
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--spacing-2);
 }
 
 .news-date {
-  font-size: 0.875rem;
-  color: var(--vp-c-text-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .news-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin: 0 0 0.75rem 0;
-  line-height: 1.4;
-  color: var(--vp-c-text-1);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-2) 0;
+  line-height: var(--line-height-tight);
 }
 
 .news-excerpt {
-  font-size: 0.875rem;
-  color: var(--vp-c-text-3);
-  line-height: 1.6;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* Empty State */
+/* ==============================
+   穩状态 - 简洁设计
+   ============================== */
 .empty-state {
-  padding: 6rem 1.5rem;
+  padding: var(--spacing-7) var(--spacing-2);
   text-align: center;
 }
 
@@ -366,41 +388,78 @@ const greeting = computed(() => {
 }
 
 .empty-icon {
-  font-size: 4rem;
+  font-size: 3rem;
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-2);
+  line-height: 1;
 }
 
 .empty-content h3 {
-  font-size: 1.5rem;
-  margin: 0 0 0.5rem 0;
-  color: var(--vp-c-text-1);
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-1) 0;
 }
 
 .empty-content p {
-  font-size: 1rem;
-  color: var(--vp-c-text-3);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
   margin: 0;
 }
 
-/* Responsive */
+/* ==============================
+   响应式设计 - Responsive
+   ============================== */
+
+/* 平板设备 */
+@media (max-width: 1024px) {
+  .content-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 移动设备 */
 @media (max-width: 768px) {
+  .hero-section {
+    padding: var(--spacing-5) var(--spacing-2);
+  }
+
   .hero-title {
     font-size: 2rem;
   }
 
   .hero-subtitle {
-    font-size: 1.125rem;
+    font-size: var(--font-size-base);
+  }
+
+  .content-overview {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2);
+    padding: 0 var(--spacing-2) var(--spacing-4);
+  }
+
+  .news-section {
+    padding: var(--spacing-3) var(--spacing-2);
   }
 
   .news-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-2);
   }
 
   .section-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: var(--spacing-2);
+  }
+
+  .empty-state {
+    padding: var(--spacing-5) var(--spacing-2);
   }
 }
 </style>

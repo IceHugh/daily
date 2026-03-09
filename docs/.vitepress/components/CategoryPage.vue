@@ -19,19 +19,16 @@ const categoryConfig = {
   web3: {
     icon: '🌐',
     title: 'Web3 资讯',
-    color: '#3b82f6',
     description: '区块链、DeFi、NFT、DAO 等前沿动态',
   },
   ai: {
     icon: '🤖',
     title: 'AI 资讯',
-    color: '#8b5cf6',
     description: '人工智能、机器学习、工具应用最新进展',
   },
   opc: {
     icon: '🚀',
     title: '超级个体',
-    color: '#10b981',
     description: '一人公司、独立开发、数字游民生活方式',
   },
 }
@@ -42,133 +39,222 @@ const currentConfig = computed(() => categoryConfig[category.value])
 
 <template>
   <div class="category-page">
-    <!-- Section Header -->
-    <div class="section-header">
-      <div class="header-content">
-        <span class="section-icon">{{ currentConfig.icon }}</span>
-        <h1 class="section-title">{{ currentConfig.title }}</h1>
-        <p class="section-description">{{ currentConfig.description }}</p>
+    <!-- 极简头部 - 无背景，纯文字 -->
+    <header class="page-header">
+      <div class="header-inner">
+        <span class="header-icon">{{ currentConfig.icon }}</span>
+        <h1 class="header-title">{{ currentConfig.title }}</h1>
+        <p class="header-description">{{ currentConfig.description }}</p>
       </div>
-    </div>
+    </header>
 
-    <!-- 板块内容 -->
-    <div class="content-wrapper">
-      <Content class="markdown-content" />
-    </div>
-
-    <!-- 空状态提示 -->
-    <div class="footer-cta">
-      <div class="cta-content">
-        <span class="cta-icon">💡</span>
-        <h3>发现新资讯</h3>
-        <p>朋友们，持续关注这个板块，获取最新资讯！</p>
+    <!-- 内容区域 - 大量留白 -->
+    <main class="content-wrapper">
+      <div class="content-inner">
+        <Content class="markdown-content" />
       </div>
-    </div>
+    </main>
+
+    <!-- 底部引导 - 极简设计 -->
+    <footer class="page-footer">
+      <div class="footer-inner">
+        <span class="footer-icon">💡</span>
+        <p class="footer-text">持续关注，获取最新资讯</p>
+      </div>
+    </footer>
   </div>
 </template>
 
 <style scoped>
+/* 使用 CSS 变量确保一致性 */
 .category-page {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Section Header */
-.section-header {
-  padding: 3rem 1.5rem 2rem;
-  background: linear-gradient(180deg, var(--vp-c-bg-soft) 0%, transparent 100%);
-  border-bottom: 1px solid var(--vp-c-border);
-}
-
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
+/* ==============================
+   极简头部设计
+   ============================== */
+.page-header {
+  padding: var(--spacing-6) var(--spacing-4) var(--spacing-5);
   text-align: center;
 }
 
-.section-icon {
-  font-size: 3rem;
+.header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.header-icon {
+  font-size: var(--font-size-h3);
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-2);
+  line-height: 1;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 1rem 0;
-  color: var(--vp-c-text-1);
+.header-title {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--spacing-3) 0;
+  color: var(--color-text-primary);
+  line-height: var(--line-height-title);
 }
 
-.section-description {
-  font-size: 1.125rem;
-  color: var(--vp-c-text-3);
+.header-description {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
   margin: 0;
-  max-width: 600px;
-  margin: 0 auto;
+  line-height: var(--line-height-body);
 }
 
-/* Content Wrapper */
+/* ==============================
+   内容区域设计
+   ============================== */
 .content-wrapper {
-  max-width: 1200px;
+  flex: 1;
+  padding: 0 var(--spacing-4);
+}
+
+.content-inner {
+  max-width: 720px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
 }
 
 .markdown-content {
-  color: var(--vp-c-text-2);
-  line-height: 1.7;
+  color: var(--color-text-primary);
+  line-height: var(--line-height-body);
 }
 
-/* Footer CTA */
-.footer-cta {
-  padding: 3rem 1.5rem;
+/* 重置 Markdown 标题样式，使用统一的设计语言 */
+.markdown-content :deep(h2) {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--spacing-6);
+  margin-bottom: var(--spacing-3);
+  color: var(--color-text-primary);
+  border-bottom: var(--border-width) solid var(--color-border);
+  padding-bottom: var(--spacing-2);
+}
+
+.markdown-content :deep(h3) {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--spacing-5);
+  margin-bottom: var(--spacing-2);
+  color: var(--color-text-primary);
+}
+
+.markdown-content :deep(p) {
+  margin-bottom: var(--spacing-3);
+}
+
+.markdown-content :deep(ul),
+.markdown-content :deep(ol) {
+  margin-bottom: var(--spacing-3);
+  padding-left: var(--spacing-4);
+}
+
+.markdown-content :deep(li) {
+  margin-bottom: var(--spacing-2);
+}
+
+/* ==============================
+   底部引导设计
+   ============================== */
+.page-footer {
+  padding: var(--spacing-6) var(--spacing-4);
   text-align: center;
-  background: linear-gradient(180deg, transparent 0%, var(--vp-c-bg-soft) 100%);
+  background-color: var(--color-bg-secondary);
 }
 
-.cta-content {
-  max-width: 600px;
+.footer-inner {
+  max-width: 480px;
   margin: 0 auto;
 }
 
-.cta-icon {
-  font-size: 2.5rem;
+.footer-icon {
+  font-size: var(--font-size-h4);
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-2);
+  line-height: 1;
 }
 
-.cta-content h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 0.75rem 0;
-  color: var(--vp-c-text-1);
-}
-
-.cta-content p {
-  font-size: 1rem;
-  color: var(--vp-c-text-3);
+.footer-text {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
   margin: 0;
+  line-height: var(--line-height-body);
 }
 
-/* Responsive */
+/* ==============================
+   响应式设计
+   ============================== */
 @media (max-width: 768px) {
-  .section-icon {
-    font-size: 2rem;
+  .page-header {
+    padding: var(--spacing-5) var(--spacing-3) var(--spacing-4);
   }
 
-  .section-title {
-    font-size: 1.75rem;
+  .header-icon {
+    font-size: var(--font-size-h4);
+    margin-bottom: var(--spacing-1);
   }
 
-  .section-description {
-    font-size: 1rem;
+  .header-title {
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-2);
   }
 
-  .cta-icon {
-    font-size: 2rem;
+  .header-description {
+    font-size: var(--font-size-base);
   }
 
-  .cta-content h3 {
-    font-size: 1.25rem;
+  .content-wrapper {
+    padding: 0 var(--spacing-3);
+  }
+
+  .markdown-content :deep(h2) {
+    font-size: var(--font-size-h4);
+    margin-top: var(--spacing-5);
+  }
+
+  .markdown-content :deep(h3) {
+    font-size: var(--font-size-h5);
+    margin-top: var(--spacing-4);
+  }
+
+  .page-footer {
+    padding: var(--spacing-5) var(--spacing-3);
+  }
+
+  .footer-icon {
+    font-size: var(--font-size-h5);
+  }
+
+  .footer-text {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    padding: var(--spacing-4) var(--spacing-2) var(--spacing-3);
+  }
+
+  .header-title {
+    font-size: var(--font-size-h3);
+  }
+
+  .header-description {
+    font-size: var(--font-size-sm);
+  }
+
+  .content-wrapper {
+    padding: 0 var(--spacing-2);
+  }
+
+  .page-footer {
+    padding: var(--spacing-4) var(--spacing-2);
   }
 }
 </style>
