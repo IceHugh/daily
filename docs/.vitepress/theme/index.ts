@@ -5,6 +5,7 @@ import './style.css'
 export default {
   extends: DefaultTheme,
   enhanceApp({ app, router, siteData }) {
-    // 在这里可以注册全局组件、指令等
+    // 注册全局组件
+    app.component('HomePage', () => import('./components/HomePage.vue'))
   },
 } satisfies Theme
